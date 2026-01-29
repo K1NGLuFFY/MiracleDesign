@@ -4,6 +4,8 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import Navbar from "@/components/Navbar";
 import { createMetadata } from "@/lib/metadata";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
     variable: "--font-inter",
@@ -32,7 +34,7 @@ export default function RootLayout({
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "Miracle Okeke Portfolio",
-        "url": "https://miracleokeke.com", // TODO: Update domain
+        "url": "https://miracle-design-chi.vercel.app",
         "author": {
             "@type": "Person",
             "name": "Miracle Okeke",
@@ -56,6 +58,8 @@ export default function RootLayout({
                 />
                 <Navbar />
                 <SmoothScroll>{children}</SmoothScroll>
+                <Analytics />
+                <SpeedInsights />
             </body>
         </html>
     );

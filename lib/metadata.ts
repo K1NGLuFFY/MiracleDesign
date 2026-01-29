@@ -15,7 +15,7 @@ export function createMetadata({
     image?: string;
     path?: string;
 }): Metadata {
-    const baseUrl = 'https://miracleokeke.com'; // TODO: Update with actual domain
+    const baseUrl = 'https://miracle-design-chi.vercel.app';
     const url = `${baseUrl}${path}`;
 
     return {
