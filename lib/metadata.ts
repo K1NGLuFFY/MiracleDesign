@@ -66,8 +66,8 @@ export function createMetadata({
             },
         },
         icons: {
-            icon: '/favicon.ico',
-            apple: '/apple-icon.png',
+            icon: '/favicon.png',
+            apple: '/favicon.png',
         },
     };
 }

@@ -30,15 +30,15 @@ export default function Home() {
                     <div className="flex flex-wrap gap-4">
                         <a
                             href="#work"
-                            className="bg-[#ff3c00] text-white px-8 py-4 font-anton text-lg uppercase tracking-widest hover:bg-white hover:text-[#0a0a0a] transition-all duration-300"
+                            className="bg-[#ff3c00] text-white px-8 py-4 font-anton text-lg uppercase tracking-widest hover:bg-white hover:text-[#0a0a0a] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#ff3c00]/25 transition-all duration-300"
                         >
                             View My Work
                         </a>
                         <a
-                            href="/Miracle_CV.pdf"
+                            href="/Miracle-Okeke-CV.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="border border-[#f4f4f0]/40 text-[#f4f4f0] px-8 py-4 font-anton text-lg uppercase tracking-widest hover:bg-[#f4f4f0] hover:text-[#0a0a0a] transition-all duration-300"
+                            className="border border-[#f4f4f0]/40 text-[#f4f4f0] px-8 py-4 font-anton text-lg uppercase tracking-widest hover:bg-[#f4f4f0] hover:text-[#0a0a0a] hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300"
                         >
                             Download CV
                         </a>
