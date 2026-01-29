@@ -69,5 +69,8 @@ export function createMetadata({
             icon: '/favicon.png',
             apple: '/favicon.png',
         },
+        verification: {
+            google: 'cb2499484ccc00cb', // TODO: Replace with your actual Google Search Console verification code
+        },
     };
 }
