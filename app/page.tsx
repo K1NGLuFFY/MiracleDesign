@@ -16,7 +16,7 @@ export default function Home() {
         <main id="main-content" className="bg-[#0a0a0a] min-h-screen text-[#f4f4f0] selection:bg-[#ff3c00] selection:text-black">
 
             {/* 1. HERO */}
-            <section className="h-screen flex flex-col justify-end pb-24 px-6 md:px-12 relative border-b border-white/10">
+            <section className="min-h-[100svh] flex flex-col justify-end pt-24 pb-16 md:pb-24 px-6 md:px-12 relative border-b border-white/10">
                 <div className="max-w-5xl">
                     <p className="font-inter text-[#ff3c00] text-sm uppercase tracking-widest mb-4">
                         Miracle Okeke — UI/UX Designer & Frontend Developer
