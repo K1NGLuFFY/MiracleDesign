@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOIRÉ MODELS | International Model & Talent Representation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-black: #0A0A0A;
+            --color-white: #F4F4F2;
+            --color-gray: #9A9A9A;
+        }
+        
+        body {
+            background-color: var(--color-black);
+            color: var(--color-white);
+            font-family: 'Inter Tight', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .font-editorial {
+            font-family: 'Libre Baskerville', serif;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--color-black);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Hover Reveal - Subtle Scaling */
+        .hover-reveal-container {
+            position: relative;
+            overflow: hidden;
+        }
+        .hover-reveal-img {
+            transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+        }
+        .hover-reveal-container:hover .hover-reveal-img {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        /* --- Animation System --- */
+
+        /* Initial Load Animations (Hero) */
+        .fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll Triggered Animations */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s cubic-bezier(0.215, 0.610, 0.355, 1.000), 
+                        transform 1s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            will-change: opacity, transform;
+        }
+
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger Delays */
+        .delay-100 { transition-delay: 0.1s; animation-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; animation-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; animation-delay: 0.3s; }
+        .delay-400 { transition-delay: 0.4s; animation-delay: 0.4s; }
+        .delay-500 { transition-delay: 0.5s; animation-delay: 0.5s; }
+
+        /* Typography spacing adjustments */
+        .tracking-tight-custom { letter-spacing: -0.04em; }
+        .tracking-wide-custom { letter-spacing: 0.2em; }
+    </style>
+</head>
+<body class="selection:bg-white selection:text-black">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 px-6 py-6 md:px-12 flex justify-between items-start mix-blend-difference text-[#F4F4F2] pointer-events-none">
+        <!-- Logo links to top -->
+        <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="text-xs md:text-sm uppercase tracking-wide-custom font-medium pointer-events-auto fade-in-up cursor-pointer">Noiré</a>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex gap-8 text-xs uppercase tracking-widest opacity-80 pointer-events-auto">
+            <a href="#faces" class="hover:opacity-100 transition-opacity fade-in-up delay-100">Women</a>
+            <a href="#faces" class="hover:opacity-100 transition-opacity fade-in-up delay-200">Men</a>
+            <a href="#about" class="hover:opacity-100 transition-opacity fade-in-up delay-300">About</a>
+            <a href="#contact" class="hover:opacity-100 transition-opacity fade-in-up delay-400">Contact</a>
+        </div>
+        
+        <!-- Mobile Placeholder (Visual Only) -->
+        <div class="md:hidden text-xs uppercase tracking-widest pointer-events-auto fade-in-up">Menu</div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section class="relative h-screen w-full flex flex-col justify-center items-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2864&auto=format&fit=crop" 
+                 alt="Model Portrait" 
+                 class="w-full h-full object-cover grayscale opacity-0 animate-[fadeIn_2s_ease-out_forwards]">
+            <div class="absolute inset-0 bg-black/30"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 mix-blend-difference text-white">
+            <h1 class="text-6xl md:text-8xl lg:text-9xl font-semibold uppercase tracking-tight-custom leading-none mb-6 fade-in-up delay-200">
+                Noiré Models
+            </h1>
+            <p class="text-xs md:text-sm uppercase tracking-[0.2em] text-gray-300 fade-in-up delay-500">
+                International Model & Talent Representation
+            </p>
+        </div>
+
+        <!-- Scroll Indicator - Now Clickable -->
+        <div class="absolute bottom-8 right-8 z-10 fade-in-up delay-500">
+            <a href="#faces" class="text-[10px] uppercase tracking-widest text-gray-400 animate-pulse hover:text-white transition-colors cursor-pointer">Scroll</a>
+        </div>
+    </section>
+
+    <!-- 2. Agency Statement -->
+    <section class="py-24 md:py-36 px-6 md:px-12 lg:px-24 bg-[#0A0A0A]">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div class="lg:col-span-4 hidden lg:block reveal-on-scroll">
+                <span class="block w-full h-[1px] bg-[#333] mb-4"></span>
+                <p class="text-xs uppercase tracking-widest text-[#9A9A9A]">Agency Profile</p>
+            </div>
+            <div class="lg:col-span-8">
+                <h2 class="reveal-on-scroll delay-100 text-2xl md:text-4xl lg:text-5xl font-light leading-tight tracking-tight mb-12 text-[#F4F4F2]">
+                    NOIRÉ is a selective modeling agency representing faces with <span class="text-gray-500">presence</span>, <span class="text-gray-500">discipline</span>, and <span class="text-gray-500">longevity</span>. 
+                    <br><br>
+                </h2>
+                <div class="reveal-on-scroll delay-200">
+                    <p class="text-xl md:text-3xl font-light leading-tight tracking-tight text-[#9A9A9A]">
+                        We work with fashion houses, editors, casting directors, and cultural institutions worldwide.
+                    </p>
+                </div>
+                
+                <div class="flex gap-8 text-[#9A9A9A] text-xs uppercase tracking-widest mt-12 reveal-on-scroll delay-300">
+                    <span>Paris</span>
+                    <span>Milan</span>
+                    <span>London</span>
+                    <span>New York</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Featured Faces (Casting Board) -->
+    <section id="faces" class="px-6 md:px-12 pb-24 bg-[#0A0A0A]">
+        <div class="flex justify-between items-end mb-12 border-b border-[#333] pb-4 reveal-on-scroll">
+            <h3 class="text-xs uppercase tracking-widest text-[#9A9A9A]">Select Board</h3>
+            <span class="text-xs uppercase tracking-widest text-[#9A9A9A]">S/S 2026</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-16">
+            
+            <!-- Model 1 -->
+            <div class="group cursor-pointer reveal-on-scroll">
+                <div class="hover-reveal-container aspect-[3/4] bg-[#111] mb-4">
+                    <img src="https://images.unsplash.com/photo-1611558709796-cfd328701e19?q=80&w=1288&auto=format&fit=crop" 
+                         alt="Model" 
+                         class="w-full h-full object-cover hover-reveal-img grayscale group-hover:grayscale-0">
+                </div>
+                <div class="flex justify-between items-baseline border-t border-transparent group-hover:border-[#333] pt-3 transition-colors duration-300">
+                    <h4 class="text-lg uppercase tracking-tight font-medium">Elena K.</h4>
+                    <span class="text-[10px] text-[#9A9A9A] uppercase tracking-widest">Berlin</span>
+                </div>
+                <div class="text-[10px] text-[#555] uppercase tracking-widest mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    179cm / 80 / 60 / 89
+                </div>
+            </div>
+
+            <!-- Model 2 -->
+            <div class="group cursor-pointer reveal-on-scroll delay-100">
+                <div class="hover-reveal-container aspect-[3/4] bg-[#111] mb-4">
+                    <img src="https://images.unsplash.com/photo-1531123414780-f74242c2b052?q=80&w=1287&auto=format&fit=crop" 
+                         alt="Model" 
+                         class="w-full h-full object-cover hover-reveal-img grayscale group-hover:grayscale-0">
+                </div>
+                <div class="flex justify-between items-baseline border-t border-transparent group-hover:border-[#333] pt-3 transition-colors duration-300">
+                    <h4 class="text-lg uppercase tracking-tight font-medium">Sasha V.</h4>
+                    <span class="text-[10px] text-[#9A9A9A] uppercase tracking-widest">Kyiv</span>
+                </div>
+                <div class="text-[10px] text-[#555] uppercase tracking-widest mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    177cm / 78 / 59 / 88
+                </div>
+            </div>
+
+            <!-- Model 3 -->
+            <div class="group cursor-pointer reveal-on-scroll delay-200">
+                <div class="hover-reveal-container aspect-[3/4] bg-[#111] mb-4">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1287&auto=format&fit=crop" 
+                         alt="Model" 
+                         class="w-full h-full object-cover hover-reveal-img grayscale group-hover:grayscale-0">
+                </div>
+                <div class="flex justify-between items-baseline border-t border-transparent group-hover:border-[#333] pt-3 transition-colors duration-300">
+                    <h4 class="text-lg uppercase tracking-tight font-medium">Julian R.</h4>
+                    <span class="text-[10px] text-[#9A9A9A] uppercase tracking-widest">London</span>
+                </div>
+                <div class="text-[10px] text-[#555] uppercase tracking-widest mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    188cm / 96 / 78 / 94
+                </div>
+            </div>
+
+            <!-- Model 4 -->
+            <div class="group cursor-pointer reveal-on-scroll">
+                <div class="hover-reveal-container aspect-[3/4] bg-[#111] mb-4">
+                    <img src="https://images.unsplash.com/photo-1535295972055-1c762f4483e5?q=80&w=1281&auto=format&fit=crop" 
+                         alt="Model" 
+                         class="w-full h-full object-cover hover-reveal-img grayscale group-hover:grayscale-0">
+                </div>
+                <div class="flex justify-between items-baseline border-t border-transparent group-hover:border-[#333] pt-3 transition-colors duration-300">
+                    <h4 class="text-lg uppercase tracking-tight font-medium">Adut M.</h4>
+                    <span class="text-[10px] text-[#9A9A9A] uppercase tracking-widest">Nairobi</span>
+                </div>
+                <div class="text-[10px] text-[#555] uppercase tracking-widest mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    180cm / 79 / 58 / 87
+                </div>
+            </div>
+
+            <!-- Model 5 -->
+            <div class="group cursor-pointer reveal-on-scroll delay-100">
+                <div class="hover-reveal-container aspect-[3/4] bg-[#111] mb-4">
+                    <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?q=80&w=1287&auto=format&fit=crop" 
+                         alt="Model" 
+                         class="w-full h-full object-cover hover-reveal-img grayscale group-hover:grayscale-0">
+                </div>
+                <div class="flex justify-between items-baseline border-t border-transparent group-hover:border-[#333] pt-3 transition-colors duration-300">
+                    <h4 class="text-lg uppercase tracking-tight font-medium">Mei L.</h4>
+                    <span class="text-[10px] text-[#9A9A9A] uppercase tracking-widest">Tokyo</span>
+                </div>
+                <div class="text-[10px] text-[#555] uppercase tracking-widest mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    176cm / 77 / 58 / 86
+                </div>
+            </div>
+
+            <!-- Model 6 -->
+            <div class="group cursor-pointer reveal-on-scroll delay-200">
+                <div class="hover-reveal-container aspect-[3/4] bg-[#111] mb-4">
+                    <img src="https://images.unsplash.com/photo-1485230405346-71acb9518d9c?q=80&w=1494&auto=format&fit=crop" 
+                         alt="Model" 
+                         class="w-full h-full object-cover hover-reveal-img grayscale group-hover:grayscale-0">
+                </div>
+                <div class="flex justify-between items-baseline border-t border-transparent group-hover:border-[#333] pt-3 transition-colors duration-300">
+                    <h4 class="text-lg uppercase tracking-tight font-medium">Freja</h4>
+                    <span class="text-[10px] text-[#9A9A9A] uppercase tracking-widest">Copenhagen</span>
+                </div>
+                <div class="text-[10px] text-[#555] uppercase tracking-widest mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    178cm / 81 / 61 / 89
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Divisions - Links FIXED -->
+    <section class="py-24 border-t border-[#1a1a1a] bg-[#0A0A0A]">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+                <!-- Women -> Faces -->
+                <a href="#faces" class="group block border-t border-transparent hover:border-[#F4F4F2] pt-4 transition-colors duration-500 reveal-on-scroll">
+                    <h3 class="text-3xl md:text-4xl uppercase font-light tracking-tight text-[#9A9A9A] group-hover:text-[#F4F4F2] transition-colors">Women</h3>
+                    <p class="mt-4 text-[10px] uppercase tracking-widest text-[#555] group-hover:text-[#9A9A9A] opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">View Main Board</p>
+                </a>
+                <!-- Men -> Faces -->
+                <a href="#faces" class="group block border-t border-transparent hover:border-[#F4F4F2] pt-4 transition-colors duration-500 reveal-on-scroll delay-100">
+                    <h3 class="text-3xl md:text-4xl uppercase font-light tracking-tight text-[#9A9A9A] group-hover:text-[#F4F4F2] transition-colors">Men</h3>
+                    <p class="mt-4 text-[10px] uppercase tracking-widest text-[#555] group-hover:text-[#9A9A9A] opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">View Main Board</p>
+                </a>
+                <!-- New Faces -> Contact/Submissions -->
+                <a href="#contact" class="group block border-t border-transparent hover:border-[#F4F4F2] pt-4 transition-colors duration-500 reveal-on-scroll delay-200">
+                    <h3 class="text-3xl md:text-4xl uppercase font-light tracking-tight text-[#9A9A9A] group-hover:text-[#F4F4F2] transition-colors">New Faces</h3>
+                    <p class="mt-4 text-[10px] uppercase tracking-widest text-[#555] group-hover:text-[#9A9A9A] opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">View Development</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Editorial / Campaign Work -->
+    <section class="py-0 bg-[#0A0A0A]">
+        <div class="w-full">
+            <div class="relative w-full h-[60vh] md:h-[80vh] overflow-hidden group reveal-on-scroll">
+                 <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2940&auto=format&fit=crop" 
+                      alt="Editorial Campaign" 
+                      class="w-full h-full object-cover grayscale opacity-70 group-hover:scale-105 transition-transform duration-[1.5s] ease-out">
+                <div class="absolute bottom-6 left-6 md:left-12">
+                    <p class="text-white text-xs font-editorial italic">Vogue Italia, September 2024</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2">
+                <div class="relative h-[50vh] md:h-[70vh] overflow-hidden group border-r border-[#1a1a1a] reveal-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2940&auto=format&fit=crop" 
+                         alt="Runway" 
+                         class="w-full h-full object-cover grayscale opacity-80 group-hover:scale-105 transition-transform duration-[1.5s] ease-out">
+                    <div class="absolute bottom-6 left-6 md:left-12">
+                        <p class="text-white text-xs font-editorial italic">Prada F/W 25</p>
+                    </div>
+                </div>
+                <div class="relative h-[50vh] md:h-[70vh] overflow-hidden group reveal-on-scroll delay-100">
+                    <img src="https://images.unsplash.com/photo-1529139574466-a302c27e3844?q=80&w=2940&auto=format&fit=crop" 
+                         alt="Campaign" 
+                         class="w-full h-full object-cover grayscale opacity-60 group-hover:scale-105 transition-transform duration-[1.5s] ease-out">
+                    <div class="absolute bottom-6 left-6 md:left-12">
+                         <p class="text-white text-xs font-editorial italic">Saint Laurent Campaign</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Submission Section -->
+    <section id="contact" class="py-32 md:py-48 px-6 md:px-12 bg-[#F4F4F2] text-[#0A0A0A]">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-6xl uppercase tracking-tighter mb-8 reveal-on-scroll">Become a Model</h2>
+            <div class="reveal-on-scroll delay-100">
+                <p class="text-sm md:text-base font-light mb-12 max-w-lg mx-auto leading-relaxed">
+                    We accept a limited number of submissions per year. <br>
+                    Polaroids only. No filters. No styling.
+                </p>
+            </div>
+            <div class="reveal-on-scroll delay-200">
+                <button class="border border-[#0A0A0A] bg-transparent text-[#0A0A0A] px-12 py-4 text-xs uppercase tracking-[0.2em] hover:bg-[#0A0A0A] hover:text-[#F4F4F2] transition-colors duration-300">
+                    Submit Digitals
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. About / Philosophy -->
+    <section id="about" class="py-24 px-6 md:px-12 bg-[#0A0A0A] border-t border-[#1a1a1a]">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div class="lg:col-span-3 text-[#555] text-xs uppercase tracking-widest reveal-on-scroll">
+                Philosophy
+            </div>
+            <div class="lg:col-span-9 reveal-on-scroll delay-100">
+                <p class="text-xl md:text-3xl font-editorial italic leading-relaxed text-[#9A9A9A]">
+                    "We believe in long-term careers, not trends. NOIRÉ develops talent with a focus on international placement, professional longevity, and creative integrity."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Footer - Links FIXED -->
+    <footer class="py-12 px-6 md:px-12 bg-[#0A0A0A] text-[#555] text-[10px] md:text-xs uppercase tracking-widest border-t border-[#1a1a1a]">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end h-full min-h-[150px]">
+            <div class="mb-8 md:mb-0 reveal-on-scroll">
+                <h4 class="text-[#F4F4F2] mb-4">Noiré Models</h4>
+                <p class="mb-1">104 Rue Amelot</p>
+                <p>75011 Paris, France</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-8 md:gap-16 mb-8 md:mb-0 reveal-on-scroll delay-100">
+                <a href="#contact" class="hover:text-[#F4F4F2] transition-colors">Contact</a>
+                <a href="#contact" class="hover:text-[#F4F4F2] transition-colors">Submissions</a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#F4F4F2] transition-colors">Instagram</a>
+            </div>
+
+            <div class="reveal-on-scroll delay-200">
+                <p>&copy; 2026 NOIRÉ</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initial Animation Keyframes -->
+    <style>
+        @keyframes fadeIn {
+            to { opacity: 0.4; } /* Matches original opacity */
+        }
+    </style>
+
+    <script>
+        // Intersection Observer for Scroll Animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-on-scroll').forEach((element) => {
+                observer.observe(element);
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                if (targetId.startsWith('#') && targetId.length > 1) {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

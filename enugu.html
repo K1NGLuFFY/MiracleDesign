@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enugu National Reserve — Nature’s Heart, Preserved</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: '#0B3D20',
+                        earth: '#7C5E45',
+                        sky: '#4AA0D5',
+                        bone: '#F4F4F0',
+                        accent: '#FF5C2D',
+                    },
+                    fontFamily: {
+                        anton: ['Anton', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                        playfair: ['Playfair Display', 'serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to bottom, rgba(11, 61, 32, 0.3), rgba(11, 61, 32, 0.6)), url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=2072&q=80')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F4F4F0; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0B3D20; 
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #7C5E45; 
+        }
+
+        /* Smooth reveal for images */
+        .reveal-img {
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-img:hover {
+            transform: scale(1.03);
+        }
+        
+        /* Text selection color */
+        ::selection {
+            background: #FF5C2D;
+            color: #fff;
+        }
+
+        /* Loader */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #0B3D20;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-bone text-gray-800 font-inter antialiased overflow-x-hidden">
+
+    <!-- Preloader -->
+    <div id="loader">
+        <div class="text-bone font-anton text-4xl tracking-wider animate-pulse">ENR</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6 px-6 md:px-12 flex justify-between items-center text-white group">
+        <div class="text-2xl font-anton tracking-wide z-50 relative">
+            ENUGU <span class="text-accent">NR.</span>
+        </div>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-10 items-center">
+            <a href="#about" class="nav-link text-sm font-bold uppercase tracking-widest hover:text-accent transition-colors relative group-hover:text-current">About</a>
+            <a href="#wildlife" class="nav-link text-sm font-bold uppercase tracking-widest hover:text-accent transition-colors relative group-hover:text-current">Wildlife</a>
+            <a href="#trails" class="nav-link text-sm font-bold uppercase tracking-widest hover:text-accent transition-colors relative group-hover:text-current">Trails</a>
+            <a href="#visit" class="bg-accent hover:bg-orange-600 text-white px-6 py-3 font-bold text-sm tracking-widest transition-all transform hover:-translate-y-1 shadow-lg">VISIT</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden z-50 focus:outline-none transition-colors duration-300">
+            <i class="fas fa-bars text-2xl"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-forest z-40 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8 text-white">
+        <a href="#about" class="text-3xl font-anton mobile-link">About</a>
+        <a href="#wildlife" class="text-3xl font-anton mobile-link">Wildlife</a>
+        <a href="#trails" class="text-3xl font-anton mobile-link">Trails</a>
+        <a href="#conservation" class="text-3xl font-anton mobile-link">Conservation</a>
+        <a href="#visit" class="text-3xl font-anton text-accent mobile-link">Plan Visit</a>
+    </div>
+
+    <!-- 1. Hero Section -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Parallax Background -->
+        <div class="absolute inset-0 bg-hero-pattern bg-cover bg-center bg-fixed transform scale-105" id="hero-bg"></div>
+        
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto mt-20">
+            <h1 class="font-anton text-6xl md:text-8xl lg:text-9xl text-white mb-6 leading-tight tracking-tight" data-aos="fade-up" data-aos-duration="1000">
+                ENUGU <br> NATIONAL RESERVE
+            </h1>
+            <p class="font-inter text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light" data-aos="fade-up" data-aos-delay="200">
+                Preserving Nature, Protecting Life, Inspiring Generations. 
+                <span class="block mt-2 font-playfair italic text-accent">The heart of the Coal City beats green.</span>
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="400">
+                <a href="#visit" class="bg-accent text-white px-8 py-4 rounded-none font-bold tracking-widest hover:bg-white hover:text-forest transition-all duration-300">
+                    VISIT THE RESERVE
+                </a>
+                <a href="#wildlife" class="border border-white text-white px-8 py-4 rounded-none font-bold tracking-widest hover:bg-white hover:text-forest transition-all duration-300">
+                    DISCOVER WILDLIFE
+                </a>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- 2. About The Reserve -->
+    <section id="about" class="py-24 px-6 md:px-12 bg-bone relative">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div data-aos="fade-right">
+                <span class="text-accent font-bold tracking-widest text-sm uppercase mb-2 block">Established 1998</span>
+                <h2 class="font-anton text-forest text-5xl md:text-7xl mb-8 leading-none">A NATURAL <br> SANCTUARY</h2>
+                <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                    Enugu National Reserve spans thousands of hectares of undisturbed forests, savannahs, and rivers, hosting endemic species and migratory wildlife. 
+                </p>
+                <p class="text-gray-600 text-lg leading-relaxed font-playfair italic border-l-4 border-earth pl-4">
+                    "A window into Nigeria’s ecological heritage, protecting the lungs of the East."
+                </p>
+                
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-2 gap-6 mt-12">
+                    <div class="bg-white p-6 shadow-sm border-b-4 border-forest">
+                        <div class="font-anton text-4xl text-forest">15k</div>
+                        <div class="text-sm text-gray-500 uppercase tracking-wider mt-1">Hectares</div>
+                    </div>
+                    <div class="bg-white p-6 shadow-sm border-b-4 border-accent">
+                        <div class="font-anton text-4xl text-forest">250+</div>
+                        <div class="text-sm text-gray-500 uppercase tracking-wider mt-1">Wildlife Species</div>
+                    </div>
+                    <div class="bg-white p-6 shadow-sm border-b-4 border-sky">
+                        <div class="font-anton text-4xl text-forest">180+</div>
+                        <div class="text-sm text-gray-500 uppercase tracking-wider mt-1">Bird Species</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="relative h-[600px]" data-aos="fade-left">
+                <!-- UPDATED IMAGE URL -->
+                <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=2071&q=80" alt="Enugu Landscape" class="w-full h-full object-cover reveal-img shadow-2xl">
+                <!-- Overlay Card -->
+                <div class="absolute -bottom-10 -left-10 bg-forest text-white p-8 max-w-xs hidden md:block shadow-xl">
+                    <p class="font-playfair text-xl italic mb-2">Did you know?</p>
+                    <p class="text-sm opacity-80">The reserve is home to rare medicinal plants used by Igbo healers for centuries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Did You Know / Fun Facts -->
+    <section class="py-24 bg-white px-6 md:px-12">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="font-anton text-5xl text-forest mb-12">DID YOU KNOW?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 border border-gray-200 rounded-sm hover:border-accent transition-colors duration-300">
+                    <div class="text-accent mb-4"><i class="fas fa-paw text-3xl"></i></div>
+                    <h3 class="font-anton text-2xl text-forest mb-3">250+ Wildlife Species</h3>
+                    <p class="text-gray-700 text-sm leading-relaxed">Including forest elephants, rare antelopes, and endangered migratory birds that call this sanctuary home.</p>
+                </div>
+                <div class="p-8 border border-gray-200 rounded-sm hover:border-accent transition-colors duration-300">
+                    <div class="text-accent mb-4"><i class="fas fa-leaf text-3xl"></i></div>
+                    <h3 class="font-anton text-2xl text-forest mb-3">Rare Medicinal Plants</h3>
+                    <p class="text-gray-700 text-sm leading-relaxed">The reserve protects ancient flora used for centuries in traditional Igbo medicine and healing practices.</p>
+                </div>
+                <div class="p-8 border border-gray-200 rounded-sm hover:border-accent transition-colors duration-300">
+                    <div class="text-accent mb-4"><i class="fas fa-dove text-3xl"></i></div>
+                    <h3 class="font-anton text-2xl text-forest mb-3">Birdwatching Paradise</h3>
+                    <p class="text-gray-700 text-sm leading-relaxed">Over 180 species of migratory and endemic birds can be spotted from our observation towers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Wildlife & Flora -->
+    <section id="wildlife" class="py-24 bg-forest text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+                <div>
+                    <h2 class="font-anton text-5xl md:text-7xl mb-2" data-aos="fade-up">HOME TO THE WILD</h2>
+                    <p class="text-gray-400 max-w-md" data-aos="fade-up" data-aos-delay="100">Witness biodiversity at its peak. From the forest floor to the canopy.</p>
+                </div>
+                <a href="#" class="hidden md:inline-block text-accent hover:text-white transition-colors border-b border-accent pb-1 mt-6 md:mt-0" data-aos="fade-up" data-aos-delay="200">View Full Species List <i class="fas fa-arrow-right ml-2"></i></a>
+            </div>
+
+            <!-- Horizontal Scroll / Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="group relative overflow-hidden h-[400px] cursor-pointer" data-aos="fade-up" data-aos-delay="0">
+                    <!-- UPDATED IMAGE URL -->
+                    <img src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=1932&q=80" alt="Elephant" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end p-6">
+                        <h3 class="font-anton text-2xl text-white mb-1 translate-y-4 group-hover:translate-y-0 transition-transform">Forest Elephants</h3>
+                        <p class="text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">Loxodonta cyclotis</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="group relative overflow-hidden h-[400px] cursor-pointer lg:mt-12" data-aos="fade-up" data-aos-delay="100">
+                    <!-- UPDATED IMAGE URL -->
+                    <img src="https://images.unsplash.com/photo-1452570053594-1b985d6ea890?auto=format&fit=crop&w=1887&q=80" alt="Parrot" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end p-6">
+                        <h3 class="font-anton text-2xl text-white mb-1 translate-y-4 group-hover:translate-y-0 transition-transform">Grey Parrots</h3>
+                        <p class="text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">Psittacus erithacus</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="group relative overflow-hidden h-[400px] cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                    <!-- UPDATED IMAGE URL -->
+                    <img src="https://images.unsplash.com/photo-1575550959106-5a7defe28b56?auto=format&fit=crop&w=2070&q=80" alt="Leopard" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end p-6">
+                        <h3 class="font-anton text-2xl text-white mb-1 translate-y-4 group-hover:translate-y-0 transition-transform">Leopards</h3>
+                        <p class="text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">Panthera pardus</p>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="group relative overflow-hidden h-[400px] cursor-pointer lg:mt-12" data-aos="fade-up" data-aos-delay="300">
+                    <!-- UPDATED IMAGE URL -->
+                    <img src="https://images.unsplash.com/photo-1598512752271-33f913a5af13?auto=format&fit=crop&w=2070&q=80" alt="Flora" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end p-6">
+                        <h3 class="font-anton text-2xl text-white mb-1 translate-y-4 group-hover:translate-y-0 transition-transform">Giant Mahogany</h3>
+                        <p class="text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">Khaya anthotheca</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Trails & Experiences -->
+    <section id="trails" class="py-24 px-6 md:px-12 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-earth font-bold tracking-widest text-sm uppercase">Adventure Awaits</span>
+                <h2 class="font-anton text-forest text-5xl md:text-7xl">EXPLORE THE WILD</h2>
+            </div>
+
+            <!-- Experience Tabs Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Hiking -->
+                <div class="group border border-gray-200 hover:border-forest transition-colors p-8" data-aos="fade-up">
+                    <div class="w-12 h-12 bg-bone rounded-full flex items-center justify-center text-forest mb-6 group-hover:bg-forest group-hover:text-white transition-colors">
+                        <i class="fas fa-hiking text-xl"></i>
+                    </div>
+                    <h3 class="font-anton text-2xl text-forest mb-4">Hiking Trails</h3>
+                    <p class="text-gray-600 mb-6 text-sm leading-relaxed">
+                        5 levels from beginner nature walks to expert terrain trekking. Discover hidden waterfalls and ancient groves.
+                    </p>
+                    <!-- UPDATED IMAGE URL -->
+                    <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=2070&q=80" alt="Hiking" class="w-full h-48 object-cover mb-4 filter grayscale group-hover:grayscale-0 transition-all">
+                    <a href="#" class="text-forest font-bold text-sm uppercase tracking-wide group-hover:text-accent">View Map <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Camping -->
+                <div class="group border border-gray-200 hover:border-forest transition-colors p-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 bg-bone rounded-full flex items-center justify-center text-forest mb-6 group-hover:bg-forest group-hover:text-white transition-colors">
+                        <i class="fas fa-campground text-xl"></i>
+                    </div>
+                    <h3 class="font-anton text-2xl text-forest mb-4">Canopy Camping</h3>
+                    <p class="text-gray-600 mb-6 text-sm leading-relaxed">
+                        Sleep under the stars in our secure riverbank tents or elevated canopy lodges. A true immersion in night sounds.
+                    </p>
+                    <!-- UPDATED IMAGE URL -->
+                    <img src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?auto=format&fit=crop&w=2070&q=80" alt="Camping" class="w-full h-48 object-cover mb-4 filter grayscale group-hover:grayscale-0 transition-all">
+                    <a href="#" class="text-forest font-bold text-sm uppercase tracking-wide group-hover:text-accent">Book Spot <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Birdwatching -->
+                <div class="group border border-gray-200 hover:border-forest transition-colors p-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 bg-bone rounded-full flex items-center justify-center text-forest mb-6 group-hover:bg-forest group-hover:text-white transition-colors">
+                        <i class="fas fa-binoculars text-xl"></i>
+                    </div>
+                    <h3 class="font-anton text-2xl text-forest mb-4">Birdwatching</h3>
+                    <p class="text-gray-600 mb-6 text-sm leading-relaxed">
+                        Access our 360-degree observation towers. Best viewing times are sunrise and dusk for migratory species.
+                    </p>
+                    <!-- UPDATED IMAGE URL -->
+                    <img src="https://images.unsplash.com/photo-1552728089-57bdde30ebd1?auto=format&fit=crop&w=2070&q=80" alt="Birdwatching" class="w-full h-48 object-cover mb-4 filter grayscale group-hover:grayscale-0 transition-all">
+                    <a href="#" class="text-forest font-bold text-sm uppercase tracking-wide group-hover:text-accent">Towers Info <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Conservation (Parallax) -->
+    <!-- UPDATED IMAGE URL IN STYLE -->
+    <section id="conservation" class="py-32 relative bg-fixed bg-center bg-cover" style="background-image: url('https://images.unsplash.com/photo-1535090467336-9501f96eef89?auto=format&fit=crop&w=2100&q=80');">
+        <div class="absolute inset-0 bg-forest/80"></div>
+        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center text-white">
+            <h2 class="font-anton text-5xl md:text-7xl mb-8">PRESERVATION IN ACTION</h2>
+            <p class="text-xl leading-relaxed mb-12 font-light">
+                We partner with local communities and NGOs to research biodiversity, prevent poaching, and restore degraded areas. Every visit supports these efforts.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-8 text-center">
+                <div class="p-4 border border-white/20 backdrop-blur-sm">
+                    <div class="text-4xl font-anton text-accent mb-2">10k+</div>
+                    <div class="text-sm uppercase tracking-wider">Trees Planted</div>
+                </div>
+                <div class="p-4 border border-white/20 backdrop-blur-sm">
+                    <div class="text-4xl font-anton text-accent mb-2">0</div>
+                    <div class="text-sm uppercase tracking-wider">Poaching Incidents '25</div>
+                </div>
+                <div class="p-4 border border-white/20 backdrop-blur-sm">
+                    <div class="text-4xl font-anton text-accent mb-2">50+</div>
+                    <div class="text-sm uppercase tracking-wider">Rangers Employed</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Supporting Local Communities -->
+    <section class="py-24 px-6 md:px-12 bg-earth/10">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="font-anton text-5xl text-forest mb-8">SUPPORTING LOCAL COMMUNITIES</h2>
+            <p class="text-gray-700 text-lg mb-10 max-w-3xl mx-auto">
+                Conservation is about people too. The reserve works hand-in-hand with nearby villages to promote sustainable livelihoods and cultural pride.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 shadow-sm border-b-4 border-earth">
+                    <i class="fas fa-user-graduate text-earth text-4xl mb-4"></i>
+                    <h3 class="font-anton text-xl text-forest mb-2">Education Programs</h3>
+                    <p class="text-sm text-gray-600">Environmental education programs in schools to raise the next generation of rangers.</p>
+                </div>
+                <div class="bg-white p-8 shadow-sm border-b-4 border-earth">
+                    <i class="fas fa-map-signs text-earth text-4xl mb-4"></i>
+                    <h3 class="font-anton text-xl text-forest mb-2">Local Guides</h3>
+                    <p class="text-sm text-gray-600">Eco-tourism guides trained directly from local residents, providing sustainable jobs.</p>
+                </div>
+                <div class="bg-white p-8 shadow-sm border-b-4 border-earth">
+                    <i class="fas fa-shopping-basket text-earth text-4xl mb-4"></i>
+                    <h3 class="font-anton text-xl text-forest mb-2">Artisan Markets</h3>
+                    <p class="text-sm text-gray-600">Spaces for local artisans to sell traditional handicrafts and arts to visitors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Cultural Heritage -->
+    <section class="py-24 px-6 md:px-12 bg-white">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+            <div class="lg:w-1/2" data-aos="fade-right">
+                <div class="grid grid-cols-2 gap-4">
+                    <!-- UPDATED IMAGE URLS -->
+                    <img src="https://images.unsplash.com/photo-1621258280628-98c4309395f1?auto=format&fit=crop&w=1887&q=80" class="w-full h-64 object-cover rounded-sm mb-8" alt="Culture 1">
+                    <img src="https://images.unsplash.com/photo-1533633310069-4a949e295484?auto=format&fit=crop&w=1965&q=80" class="w-full h-64 object-cover rounded-sm mt-8" alt="Culture 2">
+                </div>
+            </div>
+            <div class="lg:w-1/2" data-aos="fade-left">
+                <span class="text-earth font-bold tracking-widest text-sm uppercase block mb-2">Roots & Traditions</span>
+                <h2 class="font-anton text-forest text-5xl md:text-6xl mb-6">IGBO HERITAGE</h2>
+                <p class="text-gray-700 text-lg mb-6 font-playfair italic">
+                    "The land and the people are one."
+                </p>
+                <p class="text-gray-600 mb-8 leading-relaxed">
+                    Enugu National Reserve sits amid regions rich in Igbo culture. We believe in inclusive conservation. Visitors can explore local crafts, traditional music, and cultural events integrated respectfully into the eco-tourism experience.
+                </p>
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-center text-forest font-semibold"><i class="fas fa-check text-accent mr-3"></i> Traditional Pottery Workshops</li>
+                    <li class="flex items-center text-forest font-semibold"><i class="fas fa-check text-accent mr-3"></i> Masquerade Festivals (Seasonal)</li>
+                    <li class="flex items-center text-forest font-semibold"><i class="fas fa-check text-accent mr-3"></i> Local Cuisine Tasting</li>
+                </ul>
+                <button class="bg-forest text-white px-8 py-3 hover:bg-earth transition-colors">View Cultural Calendar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Gallery Grid -->
+    <section class="py-24 bg-bone">
+        <div class="text-center mb-12">
+            <h2 class="font-anton text-forest text-5xl">CAPTURED MOMENTS</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 px-2 md:px-4 h-[600px] md:h-[800px]">
+            <div class="relative group overflow-hidden h-full row-span-2 col-span-2">
+                <!-- UPDATED IMAGE URL -->
+                <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=2072&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Gallery 1">
+            </div>
+            <div class="relative group overflow-hidden h-full">
+                <!-- UPDATED IMAGE URL -->
+                <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=2071&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Gallery 2">
+            </div>
+            <div class="relative group overflow-hidden h-full">
+                <!-- UPDATED IMAGE URL -->
+                <img src="https://images.unsplash.com/photo-1444464666117-6e6e3b958495?auto=format&fit=crop&w=2070&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Gallery 3">
+            </div>
+            <div class="relative group overflow-hidden h-full col-span-2 md:col-span-1 md:row-span-1">
+                <!-- UPDATED IMAGE URL -->
+                <img src="https://images.unsplash.com/photo-1596706979685-51d020d1487b?auto=format&fit=crop&w=1974&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Gallery 4">
+            </div>
+            <div class="relative group overflow-hidden h-full">
+                <!-- UPDATED IMAGE URL -->
+                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1974&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Gallery 5">
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Visitor Testimonials -->
+    <section class="py-24 px-6 md:px-12 bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="font-anton text-forest text-4xl mb-12">VOICES OF THE WILD</h2>
+            <div class="relative bg-bone p-12 shadow-lg border-t-4 border-accent" data-aos="zoom-in">
+                <i class="fas fa-quote-left text-4xl text-earth/20 absolute top-8 left-8"></i>
+                <p class="text-xl md:text-2xl text-gray-700 font-playfair italic mb-8 relative z-10">
+                    "I've hiked across Africa, but the morning mist over the Enugu hills is something spiritual. The conservation team is doing incredible work."
+                </p>
+                <div class="flex items-center justify-center space-x-4">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="w-12 h-12 rounded-full border-2 border-accent">
+                    <div class="text-left">
+                        <div class="font-bold text-forest font-anton tracking-wide">AMARA OKAFOR</div>
+                        <div class="text-xs text-gray-500 uppercase">Eco-Tourist, Lagos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Visitor Information -->
+    <section class="py-24 bg-forest/5 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h2 class="font-anton text-5xl text-forest mb-6">VISITOR INFORMATION</h2>
+                    <p class="text-gray-700 mb-6 text-lg">
+                        Open daily from <span class="font-bold">6:00 AM to 6:00 PM</span>. All entry fees directly support our conservation and anti-poaching efforts.
+                    </p>
+                    <ul class="list-none text-gray-700 space-y-4">
+                        <li class="flex items-start"><i class="fas fa-info-circle text-accent mt-1 mr-3"></i> <div><strong>Guided Tours:</strong> Available for groups of 5+ (Booking recommended)</div></li>
+                        <li class="flex items-start"><i class="fas fa-trash-alt text-accent mt-1 mr-3"></i> <div><strong>Eco-Facilities:</strong> Picnic areas with strict waste management bins</div></li>
+                        <li class="flex items-start"><i class="fas fa-store text-accent mt-1 mr-3"></i> <div><strong>Souvenir Shop:</strong> Featuring local eco-friendly crafts</div></li>
+                        <li class="flex items-start"><i class="fas fa-wheelchair text-accent mt-1 mr-3"></i> <div><strong>Accessibility:</strong> Main trails are wheelchair accessible</div></li>
+                    </ul>
+                </div>
+                <div class="md:w-1/3 bg-white p-8 shadow-lg border-l-4 border-forest">
+                    <h3 class="font-anton text-2xl text-forest mb-4">Gate Fees</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between border-b border-gray-100 pb-2">
+                            <span>Adults</span>
+                            <span class="font-bold text-earth">₦2,000</span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-100 pb-2">
+                            <span>Children (Under 12)</span>
+                            <span class="font-bold text-earth">₦1,000</span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-100 pb-2">
+                            <span>Students (with ID)</span>
+                            <span class="font-bold text-earth">₦1,500</span>
+                        </div>
+                        <div class="flex justify-between pt-2">
+                            <span>Guided Tour (Group)</span>
+                            <span class="font-bold text-earth">₦10,000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. CTA & Footer -->
+    <footer id="visit" class="bg-forest text-white pt-24 pb-12 px-6 md:px-12 relative overflow-hidden">
+        <!-- CTA Section -->
+        <div class="max-w-7xl mx-auto border-b border-white/10 pb-16 mb-16 text-center">
+            <h2 class="font-anton text-5xl md:text-8xl mb-6">EXPERIENCE ENUGU</h2>
+            <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">Ready to reconnect with nature? Book your visit today or support our conservation efforts.</p>
+            <div class="flex flex-col md:flex-row justify-center gap-6">
+                <button class="bg-accent text-white px-10 py-4 font-bold tracking-widest hover:bg-white hover:text-forest transition-all">PLAN YOUR VISIT</button>
+                <button class="border border-white text-white px-10 py-4 font-bold tracking-widest hover:bg-white hover:text-forest transition-all">BECOME A MEMBER</button>
+            </div>
+        </div>
+
+        <!-- Footer Links -->
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div>
+                <div class="text-2xl font-anton tracking-wide mb-6">ENUGU <span class="text-accent">NR.</span></div>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    A protected national heritage site dedicated to the conservation of Nigeria's unique biodiversity.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-bold uppercase tracking-widest mb-6 text-sm text-accent">Explore</h4>
+                <ul class="space-y-3 text-gray-400 text-sm">
+                    <li><a href="#" class="hover:text-white transition-colors">Wildlife</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Hiking Trails</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Camping</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Cultural Tours</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold uppercase tracking-widest mb-6 text-sm text-accent">Contact</h4>
+                <ul class="space-y-3 text-gray-400 text-sm">
+                    <li><i class="fas fa-map-marker-alt mr-2"></i> Enugu State, Nigeria</li>
+                    <li><i class="fas fa-phone mr-2"></i> +234 800 RESERVE</li>
+                    <li><i class="fas fa-envelope mr-2"></i> visit@enugureserve.ng</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold uppercase tracking-widest mb-6 text-sm text-accent">Newsletter</h4>
+                <div class="flex">
+                    <input type="email" placeholder="Email Address" class="bg-white/10 border-none outline-none px-4 py-2 text-white placeholder-gray-400 w-full focus:ring-1 focus:ring-accent">
+                    <button class="bg-accent px-4 py-2 text-white hover:bg-orange-600 transition-colors"><i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+            <p>&copy; 2026 Enugu National Reserve. All rights reserved.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                <div class="flex space-x-4 ml-6">
+                    <a href="#" class="hover:text-accent transition-colors"><i class="fab fa-instagram text-lg"></i></a>
+                    <a href="#" class="hover:text-accent transition-colors"><i class="fab fa-twitter text-lg"></i></a>
+                    <a href="#" class="hover:text-accent transition-colors"><i class="fab fa-facebook-f text-lg"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS Animation
+        AOS.init({
+            once: true,
+            offset: 100,
+            duration: 800,
+            easing: 'ease-out-cubic',
+        });
+
+        // Loader Logic with Failsafe
+        function hideLoader() {
+            const loader = document.getElementById('loader');
+            if (loader) {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }
+        }
+
+        // Hide when page is fully loaded
+        window.addEventListener('load', hideLoader);
+
+        // Failsafe: Force hide loader after 3 seconds (even if images are still loading)
+        setTimeout(hideLoader, 3000);
+
+        // Navbar Scroll Effect (UPDATED FOR LUX STYLE)
+        const navbar = document.getElementById('navbar');
+        const mobileBtn = document.querySelector('#mobile-menu-btn i');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                // On Scroll: White Background, Dark Green Text (Forest), Shadow
+                navbar.classList.add('bg-white', 'shadow-md', 'py-4', 'text-forest');
+                navbar.classList.remove('py-6', 'text-white');
+                // Ensure mobile button adapts color if visible
+                if(mobileBtn) mobileBtn.classList.add('text-forest');
+                if(mobileBtn) mobileBtn.classList.remove('text-white');
+            } else {
+                // Top: Transparent, White Text
+                navbar.classList.remove('bg-white', 'shadow-md', 'py-4', 'text-forest');
+                navbar.classList.add('py-6', 'text-white');
+                // Reset mobile button
+                if(mobileBtn) mobileBtn.classList.remove('text-forest');
+                if(mobileBtn) mobileBtn.classList.add('text-white');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const links = document.querySelectorAll('.mobile-link');
+        let isMenuOpen = false;
+
+        btn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                menu.classList.remove('translate-x-full');
+                // Force white icon when menu is open (since overlay is green)
+                btn.innerHTML = '<i class="fas fa-times text-2xl text-white"></i>';
+            } else {
+                menu.classList.add('translate-x-full');
+                // Check scroll position to decide icon color on close
+                const isScrolled = window.scrollY > 50;
+                const iconColor = isScrolled ? 'text-forest' : 'text-white';
+                btn.innerHTML = `<i class="fas fa-bars text-2xl ${iconColor}"></i>`;
+            }
+        });
+
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                menu.classList.add('translate-x-full');
+                // Check scroll position to decide icon color on close
+                const isScrolled = window.scrollY > 50;
+                const iconColor = isScrolled ? 'text-forest' : 'text-white';
+                btn.innerHTML = `<i class="fas fa-bars text-2xl ${iconColor}"></i>`;
+            });
+        });
+    </script>
+</body>
+</html>
