@@ -33,10 +33,10 @@ Use this checklist to track your progress through the audit fixes.
 
 ### Accessibility
 
-- [ ] **2.1 Form Label Associations**
-  - [ ] Add unique `id` to all form inputs
-  - [ ] Link labels with `htmlFor` attribute
-  - [ ] Add `aria-label` where visual labels missing
+- [x] **2.1 Form Label Associations**
+  - [x] Add unique `id` to all form inputs
+  - [x] Link labels with `htmlFor` attribute
+  - [x] Add `aria-label` where visual labels missing
   - [ ] Test with screen reader
 
 - [ ] **2.2 Form Error Handling**
@@ -46,11 +46,11 @@ Use this checklist to track your progress through the audit fixes.
   - [ ] Mark required fields with `required` + `aria-required`
   - [ ] Test keyboard navigation through errors
 
-- [ ] **2.3 Focus Indicators**
-  - [ ] Remove `focus:outline-none` without replacement
-  - [ ] Add `focus-visible:ring-2` to all interactive elements
+- [x] **2.3 Focus Indicators**
+  - [x] Remove `focus:outline-none` without replacement
+  - [x] Add `focus-visible:ring-2` to all interactive elements
   - [ ] Test keyboard navigation
-  - [ ] Ensure 2px minimum focus ring
+  - [x] Ensure 2px minimum focus ring
   - [ ] Test focus visibility on all backgrounds
 
 ---
@@ -66,12 +66,12 @@ Use this checklist to track your progress through the audit fixes.
   - [ ] Verify external resources load (Unsplash, fonts)
   - [ ] Test in production
 
-- [ ] **3.2 Other Security Headers**
-  - [ ] Add HSTS header
-  - [ ] Add X-Frame-Options: DENY
-  - [ ] Add X-Content-Type-Options: nosniff
-  - [ ] Add Referrer-Policy
-  - [ ] Add Permissions-Policy
+- [x] **3.2 Other Security Headers**
+  - [x] Add HSTS header
+  - [x] Add X-Frame-Options: DENY
+  - [x] Add X-Content-Type-Options: nosniff
+  - [x] Add Referrer-Policy
+  - [x] Add Permissions-Policy
   - [ ] Test at securityheaders.com
 
 ### SEO
@@ -86,10 +86,10 @@ Use this checklist to track your progress through the audit fixes.
   - [ ] Test with Meta Debugger (Facebook)
   - [ ] Test with Twitter Card Validator
 
-- [ ] **4.2 Sitemap & Robots**
-  - [ ] Create `app/sitemap.ts`
-  - [ ] Add all pages to sitemap
-  - [ ] Create `app/robots.ts`
+- [x] **4.2 Sitemap & Robots**
+  - [x] Create `app/sitemap.ts`
+  - [x] Add all pages to sitemap
+  - [x] Create `app/robots.ts`
   - [ ] Test sitemap at `/sitemap.xml`
   - [ ] Test robots at `/robots.txt`
   - [ ] Submit sitemap to Google Search Console
@@ -130,22 +130,22 @@ Use this checklist to track your progress through the audit fixes.
 
 ### Accessibility
 
-- [ ] **8.1 Color Contrast**
+- [x] **8.1 Color Contrast**
   - [ ] Run Lighthouse accessibility audit
   - [ ] Run axe DevTools scan
   - [ ] Test each color combination with contrast checker
-  - [ ] Fix `text-gray-500` on dark backgrounds
+  - [x] Fix `text-gray-500` on dark backgrounds
   - [ ] Ensure all text ≥ 4.5:1 contrast
   - [ ] Ensure large text ≥ 3:1 contrast
   - [ ] Re-test after fixes
 
 ### Privacy & Compliance
 
-- [ ] **9.1 Privacy Policy**
-  - [ ] Create `app/privacy/page.tsx`
-  - [ ] Document data collection practices
-  - [ ] Add contact information for data requests
-  - [ ] Explain data usage and storage
+- [x] **9.1 Privacy Policy**
+  - [x] Create `app/privacy/page.tsx`
+  - [x] Document data collection practices
+  - [x] Add contact information for data requests
+  - [x] Explain data usage and storage
   - [ ] Add GDPR/CCPA compliance notices
   - [ ] Link from footer
   - [ ] Review with legal advisor (if applicable)
@@ -156,17 +156,17 @@ Use this checklist to track your progress through the audit fixes.
 
 ### Accessibility
 
-- [ ] **10.1 ARIA Improvements**
-  - [ ] Wrap navbar in `<nav>` element
-  - [ ] Add `aria-label` to navigation
-  - [ ] Add skip-to-content link
-  - [ ] Add `role="main"` if not using `<main>`
+- [x] **10.1 ARIA Improvements**
+  - [x] Wrap navbar in `<nav>` element
+  - [x] Add `aria-label` to navigation
+  - [x] Add skip-to-content link
+  - [x] Add `role="main"` if not using `<main>`
   - [ ] Test with screen reader (NVDA/JAWS/VoiceOver)
 
-- [ ] **10.2 Heading Hierarchy**
-  - [ ] Ensure single `<h1>` per page
-  - [ ] Fix heading order (h1 → h2 → h3)
-  - [ ] No skipped heading levels
+- [x] **10.2 Heading Hierarchy**
+  - [x] Ensure single `<h1>` per page
+  - [x] Fix heading order (h1 → h2 → h3)
+  - [x] No skipped heading levels
   - [ ] Test with headings outline tool
 
 - [ ] **10.3 Image Alt Text**

@@ -13,7 +13,7 @@ export default function Home() {
     const activeImage = PROJECTS.find(p => p.id === activeProject)?.image;
 
     return (
-        <main className="bg-[#0a0a0a] min-h-screen text-[#f4f4f0] selection:bg-[#ff3c00] selection:text-black">
+        <main id="main-content" className="bg-[#0a0a0a] min-h-screen text-[#f4f4f0] selection:bg-[#ff3c00] selection:text-black">
 
             {/* 1. HERO */}
             <section className="h-screen flex flex-col justify-end pb-24 px-6 md:px-12 relative border-b border-white/10">
@@ -111,7 +111,7 @@ export default function Home() {
                 </div>
 
                 <div className="relative z-10 max-w-7xl mx-auto w-full">
-                    <p className="font-inter text-xs uppercase tracking-widest text-gray-500 mb-12">Selected Case Studies</p>
+                    <p className="font-inter text-xs uppercase tracking-widest text-[#f4f4f0]/60 mb-12">Selected Case Studies</p>
                     <div className="flex flex-col">
                         {PROJECTS.map((project) => (
                             <Link
@@ -135,7 +135,7 @@ export default function Home() {
                                         {project.title}
                                     </h2>
                                 </div>
-                                <div className="mt-4 md:mt-0 font-inter text-xs md:text-sm uppercase tracking-widest text-gray-500 group-hover:text-[#ff3c00] transition-colors">
+                                <div className="mt-4 md:mt-0 font-inter text-xs md:text-sm uppercase tracking-widest text-[#f4f4f0]/60 group-hover:text-[#ff3c00] transition-colors">
                                     {project.category} — {project.year}
                                 </div>
                             </Link>

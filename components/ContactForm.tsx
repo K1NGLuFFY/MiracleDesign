@@ -40,7 +40,7 @@ export default function ContactForm() {
                     <div className="flex flex-col gap-2">
                         <label
                             htmlFor={nameId}
-                            className="font-inter text-xs uppercase tracking-widest text-gray-500"
+                            className="font-inter text-xs uppercase tracking-widest text-[#f4f4f0]/60"
                         >
                             Your Name <span className="text-[#ff3c00]" aria-label="required">*</span>
                         </label>
@@ -60,7 +60,7 @@ export default function ContactForm() {
                     <div className="flex flex-col gap-2">
                         <label
                             htmlFor={emailId}
-                            className="font-inter text-xs uppercase tracking-widest text-gray-500"
+                            className="font-inter text-xs uppercase tracking-widest text-[#f4f4f0]/60"
                         >
                             Your Email <span className="text-[#ff3c00]" aria-label="required">*</span>
                         </label>
@@ -81,7 +81,7 @@ export default function ContactForm() {
                 <div className="flex flex-col gap-2">
                     <label
                         htmlFor={messageId}
-                        className="font-inter text-xs uppercase tracking-widest text-gray-500"
+                        className="font-inter text-xs uppercase tracking-widest text-[#f4f4f0]/60"
                     >
                         Project Details <span className="text-[#ff3c00]" aria-label="required">*</span>
                     </label>

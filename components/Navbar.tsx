@@ -13,13 +13,16 @@ export default function Navbar() {
     }
 
     return (
-        <nav className="fixed top-0 left-0 w-full px-6 py-6 z-50 mix-blend-difference text-[#f4f4f0] flex justify-between items-center pointer-events-none">
+        <nav
+            className="fixed top-0 left-0 w-full px-6 py-6 z-50 mix-blend-difference text-[#f4f4f0] flex justify-between items-center pointer-events-none"
+            aria-label="Main navigation"
+        >
             {/* Logo */}
             <Link href="/" className="group cursor-pointer pointer-events-auto">
-                <h1 className="font-anton text-2xl md:text-3xl uppercase tracking-tighter leading-none">
+                <span className="font-anton text-2xl md:text-3xl uppercase tracking-tighter leading-none block">
                     MIRACLE
                     <span className="inline-block text-xs align-top mt-1 ml-1 group-hover:rotate-180 transition-transform duration-500">™</span>
-                </h1>
+                </span>
             </Link>
 
             {/* Navigation Pill */}

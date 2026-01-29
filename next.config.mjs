@@ -52,7 +52,7 @@ const nextConfig = {
                             "frame-ancestors 'none'",
                             "object-src 'none'",
                             "base-uri 'self'",
-                            "form-action 'self'",
+                            "form-action 'self' https://formspree.io",
                         ].join('; ')
                     }
                 ]

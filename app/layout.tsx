@@ -43,6 +43,13 @@ export default function RootLayout({
     return (
         <html lang="en" className={`${inter.variable} ${anton.variable} scroll-smooth`}>
             <body className="font-sans antialiased bg-[#0a0a0a] text-[#f4f4f0]">
+                {/* Skip to content link for keyboard accessibility */}
+                <a
+                    href="#main-content"
+                    className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#ff3c00] focus:text-white focus:font-inter focus:text-sm focus:uppercase focus:tracking-widest"
+                >
+                    Skip to main content
+                </a>
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
