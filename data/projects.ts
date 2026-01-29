@@ -17,6 +17,7 @@ export interface Project {
     designTool: string;
     liveUrl?: string;
     githubUrl?: string;
+    status: 'Concept' | 'Personal' | 'In Progress' | 'Complete';
 }
 
 export const PROJECTS: Project[] = [
@@ -38,6 +39,7 @@ export const PROJECTS: Project[] = [
         designTool: "Figma",
         liveUrl: "https://miracle-design-chi.vercel.app/work/enugu-reserve/live",
         githubUrl: "https://github.com/K1NGLuFFY/MiracleDesign",
+        status: "Concept",
     },
     {
         id: "noire-models",
@@ -57,6 +59,7 @@ export const PROJECTS: Project[] = [
         designTool: "Figma",
         liveUrl: undefined, // Coming Soon
         githubUrl: undefined, // Coming Soon
+        status: "Concept",
     },
     {
         id: "pulse-fitness",
@@ -76,6 +79,7 @@ export const PROJECTS: Project[] = [
         designTool: "Figma",
         liveUrl: undefined, // Coming Soon
         githubUrl: undefined, // Coming Soon
+        status: "Concept",
     },
 ];
 

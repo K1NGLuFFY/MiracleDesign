@@ -65,6 +65,22 @@ export default function Home() {
                             </p>
                         </div>
                     </div>
+
+                    {/* Process Strip */}
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+                        {[
+                            { step: "01", title: "Discover", desc: "Clarify goals, users, and constraints." },
+                            { step: "02", title: "Design", desc: "Create wireframes, UI, and interactive prototypes." },
+                            { step: "03", title: "Develop", desc: "Implement responsive, accessible interfaces in code." },
+                            { step: "04", title: "Refine", desc: "Polish details, motion, and microcopy to ship confidently." }
+                        ].map((item, i) => (
+                            <div key={i} className="border-l-2 border-[#ff3c00] pl-4">
+                                <span className="font-anton text-xs text-[#ff3c00] uppercase tracking-widest">{item.step}</span>
+                                <h4 className="font-anton text-xl uppercase mt-1">{item.title}</h4>
+                                <p className="font-inter text-sm text-[#0a0a0a]/60 mt-2">{item.desc}</p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </section>
 
@@ -105,15 +121,20 @@ export default function Home() {
                                 onMouseLeave={() => setActiveProject(null)}
                                 className="group border-b border-white/20 py-12 flex flex-col md:flex-row md:items-baseline md:justify-between cursor-pointer transition-colors duration-300 hover:border-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff3c00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
                             >
-                                <h2
-                                    className="font-anton text-[8vw] md:text-[6vw] leading-none uppercase transition-all duration-300 group-hover:text-white"
-                                    style={{
-                                        color: activeProject === project.id ? 'white' : 'transparent',
-                                        WebkitTextStroke: '1px #f4f4f0'
-                                    }}
-                                >
-                                    {project.title}
-                                </h2>
+                                <div className="flex items-baseline gap-4">
+                                    <span className="px-2 py-1 text-[10px] font-inter uppercase tracking-widest border border-[#ff3c00] text-[#ff3c00]">
+                                        {project.status}
+                                    </span>
+                                    <h2
+                                        className="font-anton text-[8vw] md:text-[6vw] leading-none uppercase transition-all duration-300 group-hover:text-white"
+                                        style={{
+                                            color: activeProject === project.id ? 'white' : 'transparent',
+                                            WebkitTextStroke: '1px #f4f4f0'
+                                        }}
+                                    >
+                                        {project.title}
+                                    </h2>
+                                </div>
                                 <div className="mt-4 md:mt-0 font-inter text-xs md:text-sm uppercase tracking-widest text-gray-500 group-hover:text-[#ff3c00] transition-colors">
                                     {project.category} — {project.year}
                                 </div>
@@ -128,9 +149,12 @@ export default function Home() {
                 <div className="max-w-7xl mx-auto">
                     <div className="border-b border-black/10 pb-12 mb-12">
                         <p className="font-inter text-xs uppercase tracking-widest text-[#ff3c00] mb-4">Skills & Tools</p>
-                        <h2 className="font-anton text-5xl md:text-6xl uppercase leading-[0.85] mb-8">
+                        <h2 className="font-anton text-5xl md:text-6xl uppercase leading-[0.85] mb-4">
                             What I<br />Build With
                         </h2>
+                        <p className="font-inter text-lg text-[#0a0a0a]/70 max-w-xl">
+                            I currently focus on dashboards, landing pages, and concept apps for the web.
+                        </p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <div>

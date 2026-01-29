@@ -173,6 +173,62 @@ export default function EnuguReservePage({ project }: Props) {
                 </div>
             </header>
 
+            {/* PROJECT INFO BLOCK */}
+            <section className="py-16 px-6 md:px-12 bg-white border-b border-gray-200">
+                <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 className="font-anton text-2xl text-enugu-forest uppercase mb-4">Overview</h3>
+                        <p className="text-gray-700 leading-relaxed">
+                            {project.why}
+                        </p>
+                    </div>
+                    <div className="space-y-8">
+                        <div>
+                            <h4 className="font-anton text-sm uppercase tracking-widest text-enugu-accent mb-2">My Role</h4>
+                            <p className="text-gray-700">{project.role}</p>
+                        </div>
+                        <div>
+                            <h4 className="font-anton text-sm uppercase tracking-widest text-enugu-accent mb-2">Tech Stack</h4>
+                            <div className="flex flex-wrap gap-2">
+                                {project.stack.map((tech, i) => (
+                                    <span key={i} className="px-3 py-1 bg-enugu-forest/10 text-enugu-forest text-sm font-medium">
+                                        {tech}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                        <div>
+                            <h4 className="font-anton text-sm uppercase tracking-widest text-enugu-accent mb-2">Status</h4>
+                            <span className="px-3 py-1 border border-enugu-accent text-enugu-accent text-sm font-medium uppercase">
+                                {project.status}
+                            </span>
+                        </div>
+                        <div className="flex gap-4">
+                            {project.liveUrl && (
+                                <a
+                                    href={project.liveUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="bg-enugu-forest text-white px-6 py-3 font-bold text-sm uppercase tracking-widest hover:bg-enugu-accent transition-colors"
+                                >
+                                    View Live
+                                </a>
+                            )}
+                            {project.githubUrl && (
+                                <a
+                                    href={project.githubUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="border border-enugu-forest text-enugu-forest px-6 py-3 font-bold text-sm uppercase tracking-widest hover:bg-enugu-forest hover:text-white transition-colors"
+                                >
+                                    View Code
+                                </a>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* 2. ABOUT THE RESERVE */}
             <section id="about" className="py-24 px-6 md:px-12 bg-enugu-bone relative">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">

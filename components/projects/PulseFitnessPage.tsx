@@ -33,6 +33,69 @@ export default function PulseFitnessPage({ project }: Props) {
                 </div>
             </section>
 
+            {/* PROJECT INFO BLOCK */}
+            <section className="py-16 bg-white border-b border-gray-200">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <div>
+                            <h3 className="font-anton text-2xl text-[#0f1712] uppercase mb-4">Overview</h3>
+                            <p className="text-gray-600 leading-relaxed text-lg">{project.why}</p>
+                        </div>
+                        <div className="space-y-6">
+                            <div className="grid grid-cols-2 gap-6">
+                                <div>
+                                    <h4 className="font-anton text-sm text-[#526b55] uppercase tracking-widest mb-2">My Role</h4>
+                                    <p className="text-[#0f1712]">{project.role}</p>
+                                </div>
+                                <div>
+                                    <h4 className="font-anton text-sm text-[#526b55] uppercase tracking-widest mb-2">Status</h4>
+                                    <span className="inline-block px-3 py-1 bg-[#526b55]/10 text-[#526b55] text-sm font-medium uppercase">
+                                        {project.status}
+                                    </span>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 className="font-anton text-sm text-[#526b55] uppercase tracking-widest mb-3">Tech Stack</h4>
+                                <div className="flex flex-wrap gap-2">
+                                    {project.stack.map((tech, i) => (
+                                        <span key={i} className="px-3 py-1.5 bg-[#0f1712] text-white text-sm font-medium">
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className="flex gap-4 pt-4">
+                                {project.liveUrl && (
+                                    <a
+                                        href={project.liveUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="bg-[#526b55] text-white px-6 py-3 font-anton text-sm uppercase tracking-widest hover:bg-[#0f1712] transition-colors"
+                                    >
+                                        View Live
+                                    </a>
+                                )}
+                                {project.githubUrl && (
+                                    <a
+                                        href={project.githubUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="border border-[#0f1712] text-[#0f1712] px-6 py-3 font-anton text-sm uppercase tracking-widest hover:bg-[#0f1712] hover:text-white transition-colors"
+                                    >
+                                        View Code
+                                    </a>
+                                )}
+                                {!project.liveUrl && !project.githubUrl && (
+                                    <span className="text-gray-400 text-sm uppercase tracking-widest italic">
+                                        Coming Soon
+                                    </span>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* Philosophy Section */}
             <section className="py-24 bg-[#f4f4f2]">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">

@@ -44,6 +44,71 @@ export default function NoireModelsPage({ project }: Props) {
                 </div>
             </section>
 
+            {/* PROJECT INFO BLOCK */}
+            <section className="py-16 px-6 md:px-12 lg:px-24 bg-[#0A0A0A] border-b border-[#1a1a1a]">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    <div className="lg:col-span-4">
+                        <span className="block w-full h-[1px] bg-[#333] mb-4" />
+                        <p className="text-xs uppercase tracking-widest text-[#9A9A9A]">Project Details</p>
+                    </div>
+                    <div className="lg:col-span-8 space-y-8">
+                        <div>
+                            <h3 className="text-xs uppercase tracking-widest text-[#555] mb-3">Overview</h3>
+                            <p className="text-lg text-[#9A9A9A] leading-relaxed">{project.why}</p>
+                        </div>
+                        <div className="grid grid-cols-2 gap-8">
+                            <div>
+                                <h4 className="text-xs uppercase tracking-widest text-[#555] mb-2">My Role</h4>
+                                <p className="text-[#F4F4F2]">{project.role}</p>
+                            </div>
+                            <div>
+                                <h4 className="text-xs uppercase tracking-widest text-[#555] mb-2">Status</h4>
+                                <span className="inline-block px-3 py-1 border border-[#9A9A9A] text-[#9A9A9A] text-xs uppercase tracking-widest">
+                                    {project.status}
+                                </span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 className="text-xs uppercase tracking-widest text-[#555] mb-3">Tech</h4>
+                            <div className="flex flex-wrap gap-3">
+                                {project.stack.map((tech, i) => (
+                                    <span key={i} className="text-[#F4F4F2] text-sm border-b border-[#333] pb-1">
+                                        {tech}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="flex gap-4 pt-4">
+                            {project.liveUrl && (
+                                <a
+                                    href={project.liveUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="border border-[#F4F4F2] text-[#F4F4F2] px-6 py-3 text-xs uppercase tracking-[0.2em] hover:bg-[#F4F4F2] hover:text-[#0A0A0A] transition-colors"
+                                >
+                                    View Live
+                                </a>
+                            )}
+                            {project.githubUrl && (
+                                <a
+                                    href={project.githubUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="border border-[#555] text-[#9A9A9A] px-6 py-3 text-xs uppercase tracking-[0.2em] hover:border-[#F4F4F2] hover:text-[#F4F4F2] transition-colors"
+                                >
+                                    View Code
+                                </a>
+                            )}
+                            {!project.liveUrl && !project.githubUrl && (
+                                <span className="text-[#555] text-xs uppercase tracking-widest italic">
+                                    Coming Soon
+                                </span>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* Agency Statement */}
             <section className="py-24 md:py-36 px-6 md:px-12 lg:px-24 bg-[#0A0A0A]">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
