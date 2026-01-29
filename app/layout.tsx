@@ -4,6 +4,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import Navbar from "@/components/Navbar";
 import { createMetadata } from "@/lib/metadata";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
     variable: "--font-inter",
@@ -49,6 +50,7 @@ export default function RootLayout({
                 />
                 <Navbar />
                 <SmoothScroll>{children}</SmoothScroll>
+                <Analytics />
             </body>
         </html>
     );
