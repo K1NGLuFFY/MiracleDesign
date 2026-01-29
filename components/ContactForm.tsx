@@ -74,9 +74,12 @@ export default function ContactForm() {
     return (
         <section id="contact" className="py-32 px-6 md:px-12 bg-[#0a0a0a] border-t border-white/10">
             <div className="max-w-4xl mx-auto text-center mb-16">
-                <h2 className="font-anton text-6xl md:text-8xl uppercase text-[#f4f4f0]">
+                <h2 className="font-anton text-6xl md:text-8xl uppercase text-[#f4f4f0] mb-8">
                     Let's Build<br />The Future.
                 </h2>
+                <p className="font-inter text-lg md:text-xl text-[#f4f4f0]/70 max-w-2xl mx-auto">
+                    I'm currently looking for internships and junior roles starting February 2027. If you have a project in mind or just want to talk tech, drop me a line. I usually respond within 24 hours.
+                </p>
             </div>
 
             <form onSubmit={handleSubmit(onSubmit)} className="max-w-2xl mx-auto space-y-8" noValidate>
@@ -91,8 +94,8 @@ export default function ContactForm() {
                     {submitMessage && (
                         <div
                             className={`p-4 rounded-md text-center ${submitMessage.type === 'success'
-                                    ? 'bg-green-900/20 border border-green-500/30 text-green-400'
-                                    : 'bg-red-900/20 border border-red-500/30 text-red-400'
+                                ? 'bg-green-900/20 border border-green-500/30 text-green-400'
+                                : 'bg-red-900/20 border border-red-500/30 text-red-400'
                                 }`}
                         >
                             {submitMessage.text}
@@ -211,12 +214,40 @@ export default function ContactForm() {
               focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#ff3c00]/50
               disabled:opacity-50 disabled:cursor-not-allowed
               transition-all duration-300"
-                        aria-label={isSubmitting ? 'Sending request...' : 'Send request'}
+                        aria-label={isSubmitting ? 'Sending message...' : 'Send message'}
                     >
-                        {isSubmitting ? 'Sending...' : 'Send Request'}
+                        {isSubmitting ? 'Sending...' : 'Send Message'}
                     </button>
                 </div>
             </form>
+
+            {/* Contact Info Row */}
+            <div className="max-w-2xl mx-auto mt-16 pt-8 border-t border-white/10">
+                <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 text-center">
+                    <a
+                        href="mailto:contact.miracledesign@gmail.com"
+                        className="font-inter text-sm text-[#f4f4f0]/70 hover:text-[#ff3c00] transition-colors"
+                    >
+                        contact.miracledesign@gmail.com
+                    </a>
+                    <a
+                        href="https://github.com/K1NGLuFFY"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-inter text-sm text-[#f4f4f0]/70 hover:text-[#ff3c00] transition-colors"
+                    >
+                        github.com/K1NGLuFFY
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/in/chiemerie-okeke-9ba813379/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-inter text-sm text-[#f4f4f0]/70 hover:text-[#ff3c00] transition-colors"
+                    >
+                        linkedin.com/in/chiemerie-okeke-9ba813379
+                    </a>
+                </div>
+            </div>
         </section>
     );
 }

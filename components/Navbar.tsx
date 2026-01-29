@@ -17,7 +17,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link href="/" className="group cursor-pointer pointer-events-auto">
                 <h1 className="font-anton text-2xl md:text-3xl uppercase tracking-tighter leading-none">
-                    ANTHON
+                    MIRACLE
                     <span className="inline-block text-xs align-top mt-1 ml-1 group-hover:rotate-180 transition-transform duration-500">™</span>
                 </h1>
             </Link>
@@ -26,7 +26,7 @@ export default function Navbar() {
             <div className="hidden md:flex gap-8 items-center bg-black/20 backdrop-blur-md px-6 py-3 rounded-full border border-white/10 pointer-events-auto">
                 {isHome ? (
                     <>
-                        <a href="#philosophy" className="font-inter text-xs uppercase tracking-widest hover:text-[#ff3c00] transition-colors">Philosophy</a>
+                        <a href="#philosophy" className="font-inter text-xs uppercase tracking-widest hover:text-[#ff3c00] transition-colors">About</a>
                         <a href="#work" className="font-inter text-xs uppercase tracking-widest hover:text-[#ff3c00] transition-colors">Selected Work</a>
                         <a href="#contact" className="font-inter text-xs uppercase tracking-widest hover:text-[#ff3c00] transition-colors">Contact</a>
                     </>

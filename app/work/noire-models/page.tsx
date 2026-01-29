@@ -1,38 +1,93 @@
 'use client';
 import Link from 'next/link';
+import { getProjectById } from '@/data/projects';
 
 export default function NoireCaseStudy() {
+    const project = getProjectById('noire-models');
+
+    if (!project) return null;
+
     return (
         <main className="bg-[#0A0A0A] text-[#F4F4F2] min-h-screen pt-32 pb-24 px-6 md:px-12 selection:bg-white selection:text-black">
 
             {/* HEADER */}
             <div className="max-w-7xl mx-auto border-b border-white/10 pb-12 mb-12">
+                <p className="font-inter text-xs uppercase tracking-widest text-[#ff3c00] mb-4">{project.label}</p>
                 <h1 className="font-anton text-[10vw] leading-[0.85] uppercase">
                     NOIRÉ<br />MODELS
                 </h1>
                 <div className="mt-8 flex justify-between items-end text-[#9A9A9A]">
-                    <p className="font-inter text-sm uppercase tracking-widest">Fashion & Editorial</p>
-                    <p className="font-inter text-sm uppercase tracking-widest">2025</p>
+                    <p className="font-inter text-sm uppercase tracking-widest">{project.category}</p>
+                    <p className="font-inter text-sm uppercase tracking-widest">{project.year}</p>
                 </div>
             </div>
 
-            {/* CONTEXT */}
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-24">
+            {/* WHY / CONTEXT */}
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
                 <div className="col-span-2">
-                    <h3 className="font-anton text-3xl mb-6">THE BRIEF</h3>
+                    <h3 className="font-anton text-3xl mb-6">WHY THIS PROJECT</h3>
                     <p className="font-inter text-xl leading-relaxed text-[#9A9A9A]">
-                        Fashion portfolios are often cluttered. Noiré needed to be invisible.
-                        We built a "Stage-First" interface where the UI recedes entirely, leaving only the talent in focus.
-                        The aesthetic is stark, high-contrast, and strictly monochromatic.
+                        {project.why}
                     </p>
                 </div>
                 <div>
-                    <h3 className="font-anton text-3xl mb-6">THE TECH</h3>
+                    <h3 className="font-anton text-3xl mb-6">MY ROLE</h3>
+                    <p className="font-inter text-lg text-[#9A9A9A]">
+                        {project.role}
+                    </p>
+                </div>
+            </div>
+
+            {/* STACK */}
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-24">
+                <div>
+                    <h3 className="font-anton text-3xl mb-6">TECH STACK</h3>
                     <ul className="font-inter text-sm uppercase tracking-widest space-y-2 text-[#9A9A9A]">
-                        <li className="border-b border-white/10 pb-2">React / Next.js</li>
-                        <li className="border-b border-white/10 pb-2">CSS Blend Modes</li>
-                        <li className="border-b border-white/10 pb-2">Scroll Observers</li>
+                        {project.stack.map((tech, index) => (
+                            <li key={index} className="border-b border-white/10 pb-2">{tech}</li>
+                        ))}
                     </ul>
+                </div>
+                <div>
+                    <h3 className="font-anton text-3xl mb-6">DESIGN</h3>
+                    <p className="font-inter text-sm uppercase tracking-widest text-[#9A9A9A]">
+                        {project.designTool}
+                    </p>
+                </div>
+            </div>
+
+            {/* LINKS SECTION */}
+            <div className="max-w-7xl mx-auto mb-24">
+                <h3 className="font-anton text-3xl mb-6">VIEW PROJECT</h3>
+                <div className="flex flex-wrap gap-4">
+                    {project.liveUrl ? (
+                        <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-[#F4F4F2] text-black px-8 py-4 font-anton text-lg uppercase tracking-widest hover:bg-[#ff3c00] hover:text-white transition-all duration-300"
+                        >
+                            View Live
+                        </a>
+                    ) : (
+                        <span className="bg-[#333] text-[#666] px-8 py-4 font-anton text-lg uppercase tracking-widest cursor-not-allowed">
+                            Coming Soon
+                        </span>
+                    )}
+                    {project.githubUrl ? (
+                        <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="border border-[#F4F4F2] text-[#F4F4F2] px-8 py-4 font-anton text-lg uppercase tracking-widest hover:bg-[#F4F4F2] hover:text-black transition-all duration-300"
+                        >
+                            View GitHub
+                        </a>
+                    ) : (
+                        <span className="border border-[#333] text-[#666] px-8 py-4 font-anton text-lg uppercase tracking-widest cursor-not-allowed">
+                            GitHub Coming Soon
+                        </span>
+                    )}
                 </div>
             </div>
 
